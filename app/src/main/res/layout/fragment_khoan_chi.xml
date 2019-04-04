@@ -13,7 +13,7 @@
         android:padding="10dp"
         android:visibility="invisible"
         android:gravity="center"
-        android:text="Tài Khoản hoặc Loại Thu Của bạn hiện chưa có dữ liệu vui lòng Kiểm tra lại Thank you!"
+        android:text="Chưa có dữ liệu tài khoản"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

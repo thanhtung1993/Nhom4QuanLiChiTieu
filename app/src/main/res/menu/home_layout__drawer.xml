@@ -11,13 +11,13 @@
             android:title="Thống kê"
             />
         <item
-            android:id="@+id/nav_KhoangThu"
+            android:id="@+id/nav_KhoanThu"
             android:icon="@drawable/ic_receipt_black_24dp"
             android:iconTint="@android:color/white"
             android:title="Khoảng Thu" />
 
         <item
-            android:id="@+id/nav_KhoangChi"
+            android:id="@+id/nav_KhoanChi"
             android:icon="@drawable/cost"
             android:iconTint="@android:color/white"
             android:title="Khoảng Chi" />

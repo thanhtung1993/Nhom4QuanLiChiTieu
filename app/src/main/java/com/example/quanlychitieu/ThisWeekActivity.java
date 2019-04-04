@@ -1,5 +1,6 @@
 package com.example.quanlychitieu;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -7,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.quanlychitieu.Database.DatabaseKhoanChi;
 import com.example.quanlychitieu.Database.DatabaseKhoanThu;
@@ -14,6 +16,17 @@ import com.example.quanlychitieu.Database.DatabaseTaiKhoan;
 import com.example.quanlychitieu.Model.ModelKhoanChi;
 import com.example.quanlychitieu.Model.ModelKhoanThu;
 import com.example.quanlychitieu.Model.ModelTaiKhoan;
+import com.github.mikephil.charting.animation.Easing;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.formatter.PercentFormatter;
+import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
+import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +38,7 @@ public class ThisWeekActivity extends Fragment {
     List<ModelKhoanThu> listTodayThu;
     List<ModelKhoanChi> listTodayChi;
     List<ModelTaiKhoan> listModelTaiKhoan;
-   // private PieChart mChart;
+    private PieChart mChart;
     private float TongThuChiCu,TongThuChiMoi,TongThuChi,tongChi,tongThu;
 
     private float [] yData;
@@ -46,7 +59,7 @@ public class ThisWeekActivity extends Fragment {
         listTodayThu=new ArrayList<>();
         listTodayChi=new ArrayList<>();
         listModelTaiKhoan =new ArrayList<>();
-      //  mChart=view.findViewById(R.id.chartWeek);
+        mChart=view.findViewById(R.id.chartWeek);
 
         tongThu=0;
         listTodayThu=databaseKhoanThu.layKhoanThuTheoNgayThangNam(databaseKhoanThu.ThisWeek);
@@ -75,7 +88,7 @@ public class ThisWeekActivity extends Fragment {
 
 
         xData=new String[]{a,b,c};
-     /*   final List<PieEntry> pieEntriesY=new ArrayList<>();
+       final List<PieEntry> pieEntriesY=new ArrayList<>();
 
         for (int i=0; i<yData.length;i++){
             pieEntriesY.add(new PieEntry((float) yData[i],xData[i]));
@@ -127,7 +140,7 @@ public class ThisWeekActivity extends Fragment {
             public void onNothingSelected() {
 
             }
-        });*/
+        });
         return view;
     }
 }

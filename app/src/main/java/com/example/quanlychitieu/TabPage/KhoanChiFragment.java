@@ -110,7 +110,7 @@ public class KhoanChiFragment extends Fragment {
     private void ShowDialog() {
 
         final AlertDialog.Builder aLertDialog=new AlertDialog.Builder(getContext());
-        aLertDialog.setTitle("Thêm Khoảng Chi ");
+        aLertDialog.setTitle("Thêm Khoản Chi ");
         aLertDialog.setMessage("Vui lòng nhập đủ thông tin!");
         aLertDialog.setCancelable(false);
         LayoutInflater inflater=this.getLayoutInflater();
@@ -227,7 +227,10 @@ public class KhoanChiFragment extends Fragment {
         apdater=new KhoanChiAdapter(listModelKhoanChi,getContext());
         recyclerView_KhoangChi.setAdapter(apdater);
         apdater.notifyDataSetChanged();
-        NumberFormat fmt;
+
+
+
+       /* NumberFormat fmt;
         Locale locale;
         locale = new Locale("vi", "VN");
         fmt = NumberFormat.getCurrencyInstance(locale);
@@ -236,7 +239,7 @@ public class KhoanChiFragment extends Fragment {
             total+=(Integer.parseInt(modelKhoanChi.getSoTienChi()));
 
         }
-        txtTongChi.setText(fmt.format(total));
+        txtTongChi.setText(fmt.format(total));*/
 
     }
 

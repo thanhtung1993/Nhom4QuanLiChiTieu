@@ -1,5 +1,6 @@
 package com.example.quanlychitieu;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -7,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.quanlychitieu.Database.DatabaseKhoanChi;
 import com.example.quanlychitieu.Database.DatabaseKhoanThu;
@@ -14,7 +16,17 @@ import com.example.quanlychitieu.Database.DatabaseTaiKhoan;
 import com.example.quanlychitieu.Model.ModelKhoanChi;
 import com.example.quanlychitieu.Model.ModelKhoanThu;
 import com.example.quanlychitieu.Model.ModelTaiKhoan;
-
+import com.github.mikephil.charting.animation.Easing;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.formatter.PercentFormatter;
+import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
+import com.github.mikephil.charting.utils.ColorTemplate;
 
 
 import java.util.ArrayList;
@@ -28,7 +40,7 @@ public class ThisYearActitvity extends Fragment {
     List<ModelKhoanThu> listTodayThu;
     List<ModelKhoanChi> listTodayChi;
     List<ModelTaiKhoan> listModelTaiKhoan;
-   // private PieChart mChart;
+    private PieChart mChart;
     private float TongThuChiCu,TongThuChiMoi,TongThuChi,tongChi,tongThu;
 
     private float [] yData;
@@ -49,7 +61,7 @@ public class ThisYearActitvity extends Fragment {
         listTodayThu=new ArrayList<>();
         listTodayChi=new ArrayList<>();
         listModelTaiKhoan =new ArrayList<>();
-       // mChart=view.findViewById(R.id.chartYear);
+         mChart=view.findViewById(R.id.chartYear);
 
         tongThu=0;
         listTodayThu=databaseKhoanThu.layKhoanThuTheoNgayThangNam(databaseKhoanThu.ThisYear);
@@ -66,19 +78,19 @@ public class ThisYearActitvity extends Fragment {
             tongChi+=(Float.parseFloat(modelKhoanChi.getSoTienChi()));
         }
         TongThuChi=0;
-     //  mChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
-         //   @Override
-         //   public void onValueSelected(Entry e, Highlight h) {
-        //        Toast.makeText(getActivity(), ""+e.getY(), Toast.LENGTH_SHORT).show();
-        //    }
-//
-       //     @Override
-        /*    public void onNothingSelected() {
+        mChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
+           @Override
+            public void onValueSelected(Entry e, Highlight h) {
+              Toast.makeText(getActivity(), ""+e.getY(), Toast.LENGTH_SHORT).show();
+           }
+
+          @Override
+           public void onNothingSelected() {
 
             }
         });
-        listTaiKhoan=databaseTaiKhoan.getTaiKhoan();
-        for (TaiKhoan taiKhoan:listTaiKhoan)
+        listModelTaiKhoan=databaseTaiKhoan.getTaiKhoan();
+        for (ModelTaiKhoan taiKhoan:listModelTaiKhoan)
         {
             TongThuChi+=Float.parseFloat(taiKhoan.getSoTienTaiKhoan());
 
@@ -140,7 +152,7 @@ public class ThisYearActitvity extends Fragment {
             public void onNothingSelected() {
 
             }
-        });*/
+        });
         return view;
     }
 }

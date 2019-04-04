@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 
 import com.example.quanlychitieu.ItemOnClickListener;
-import com.example.quanlychitieu.KhoangThuChiTietActivity;
+import com.example.quanlychitieu.KhoanThuChiTietActivity;
 import com.example.quanlychitieu.Model.ModelKhoanThu;
 import com.example.quanlychitieu.R;
 
@@ -45,7 +45,7 @@ class KhoanThuViewHolder extends RecyclerView.ViewHolder implements View.OnClick
 //        itemOnClickListener.onClick(view,getAdapterPosition(),false);
         int position= getAdapterPosition();
         ModelKhoanThu modelKhoanThu =thuList.get(position);
-        Intent intent=new Intent(this.context, KhoangThuChiTietActivity.class);
+        Intent intent=new Intent(this.context, KhoanThuChiTietActivity.class);
         intent.putExtra("ngay", modelKhoanThu.getNgay());
         intent.putExtra("taikhoan", modelKhoanThu.getTaiKhoan());
         intent.putExtra("sotien", modelKhoanThu.getSoTien());

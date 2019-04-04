@@ -229,11 +229,12 @@ public class KhoanThuFragment extends Fragment {
 
     private void LoadListKhoanThu() {
         listModelKhoanThu =databaseKhoanThu.layKhoanThu();
+
         apdater=new KhoanThuApdater(listModelKhoanThu,getContext());
         recyclerView_KhoangThu.setAdapter(apdater);
         apdater.notifyDataSetChanged();
 
-        NumberFormat fmt;
+       /* NumberFormat fmt;
         Locale locale;
         locale = new Locale("vi", "VN");
         fmt = NumberFormat.getCurrencyInstance(locale);
@@ -242,7 +243,7 @@ public class KhoanThuFragment extends Fragment {
             total+=(Integer.parseInt(modelKhoanThu.getSoTien()));
 
         }
-        txtTongThu.setText(fmt.format(total));
+        txtTongThu.setText(fmt.format(total));*/
 
 
 

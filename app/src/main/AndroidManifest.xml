@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".KhoangThuChiTietActivity"></activity>
+        <activity android:name=".KhoanThuChiTietActivity"></activity>
+
 
     </application>
 

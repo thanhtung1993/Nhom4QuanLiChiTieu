@@ -8,10 +8,20 @@ import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-public class KhoangThuChiTietActivity extends AppCompatActivity {
+import com.example.quanlychitieu.Database.DatabaseKhoanThu;
+import com.example.quanlychitieu.Model.ModelKhoanChi;
+import com.example.quanlychitieu.Model.ModelKhoanThu;
+
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.List;
+
+public class KhoanThuChiTietActivity extends AppCompatActivity {
 
     TextView txtngay,txttaikhoan,txtsotien,txtloaithu,txtmota;
 
@@ -23,6 +33,18 @@ public class KhoangThuChiTietActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_khoang_thu_chi_tiet);
+
+
+
+        DatabaseKhoanThu databaseKhoanThu=new DatabaseKhoanThu(this);
+        List<ModelKhoanThu> modelKhoanThus;
+        modelKhoanThus=databaseKhoanThu.layKhoanThu();
+        for (int i=0;i<modelKhoanThus.size();i++)
+        { Log.d("dulieu",modelKhoanThus.get(i).getId()+"-"
+                +modelKhoanThus.get(i).getTaiKhoan()+"-"
+                +modelKhoanThus.get(i).getSoTien()+"-"
+                +modelKhoanThus.get(i).getNgay()+"-"
+                +modelKhoanThus.get(i).getLoaiThu());}
 
         txtngay=findViewById(R.id.txtngay);
         txttaikhoan=findViewById(R.id.txttaikhoan);
@@ -52,9 +74,7 @@ public class KhoangThuChiTietActivity extends AppCompatActivity {
         }
         txtngay.setText(getIntent().getStringExtra("ngay"));
         txttaikhoan.setText(getIntent().getStringExtra("taikhoan"));
-
         txtsotien.setText(getIntent().getStringExtra("sotien"));
-
         txtloaithu.setText(Nameloaithu);
         txtmota.setText(getIntent().getStringExtra("mota"));
 

@@ -33,7 +33,7 @@
             <Button
                 android:id="@+id/btnHuy"
                 android:text="Hủy"
-                android:textColor="#fff"
+                android:textColor="#111111"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -44,7 +44,7 @@
             <Button
                 android:id="@+id/btnAdd"
                 android:text="Thêm"
-                android:textColor="#fff"
+                android:textColor="#111111"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

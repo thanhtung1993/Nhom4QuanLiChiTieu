@@ -10,16 +10,22 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
 
+import com.example.quanlychitieu.Database.DatabaseKhoanChi;
 import com.example.quanlychitieu.Fragment.ChiFragment;
 import com.example.quanlychitieu.Fragment.GioiThieuFragment;
 import com.example.quanlychitieu.Fragment.NapTienVaoTaiKhoanFragment;
 import com.example.quanlychitieu.Fragment.ThonKeFragment;
 import com.example.quanlychitieu.Fragment.ThuFragment;
+import com.example.quanlychitieu.Model.ModelKhoanChi;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -30,11 +36,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     TextView txtFulllname;
     TextView txtGetTiltle;
 
+
     @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
 
         txtGetTiltle=findViewById(R.id.txttoolbartil);
         drawerLayout =  findViewById(R.id.Drawerlayout);
@@ -83,17 +93,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 item.setChecked(true);
                 drawerLayout.closeDrawers();
                 break;
-            case R.id.nav_KhoangThu:
+            case R.id.nav_KhoanThu:
                 FragmentTransaction tranHienThiThu = fragmentManager.beginTransaction();//
                 ThuFragment hienThithu = new ThuFragment();
                 tranHienThiThu.replace(R.id.content, hienThithu);
                 tranHienThiThu.commit();
-                txtGetTiltle.setText("Khoản Thu");
+              // txtGetTiltle.setText("Khoản Thu");
                 item.setChecked(true);
                 drawerLayout.closeDrawers();
                 break;
 
-            case R.id.nav_KhoangChi:
+            case R.id.nav_KhoanChi:
                 FragmentTransaction tranHienThiChi = fragmentManager.beginTransaction();//
                 ChiFragment hienThichi = new ChiFragment();
                 tranHienThiChi.replace(R.id.content, hienThichi);
@@ -101,6 +111,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 txtGetTiltle.setText("Khoản Chi");
                 item.setChecked(true);
                 drawerLayout.closeDrawers();
+
+
+
                 break;
 
             case R.id.nav_TaiKhoan:

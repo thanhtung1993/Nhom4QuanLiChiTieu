@@ -59,6 +59,7 @@ public class DatabaseKhoanChi {
 
         String TruyVan=" SELECT * FROM " + CreateDatabase.TB_KHOANCHI;
 
+
         Cursor cursor=database.rawQuery(TruyVan,null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()){
@@ -72,7 +73,8 @@ public class DatabaseKhoanChi {
             modelKhoanChiList.add(modelKhoanChi);
             cursor.moveToNext();
         }
-        Log.d("kiemtra", String.valueOf(modelKhoanChiList));
+
+
         return modelKhoanChiList;
     }
 
@@ -92,7 +94,8 @@ public class DatabaseKhoanChi {
             list.add(modelKhoanChi);
             cursor.moveToNext();
         }
-        //Log.d("checkNao", String.valueOf(list));
+
+
         return list;
     }
 
